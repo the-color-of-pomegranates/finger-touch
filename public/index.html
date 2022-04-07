@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>finger touch</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="finger touch app">
+    <link href="https://fonts.googleapis.com/css?family=Dokdo|Homemade+Apple|Roboto+Mono" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <header><h1>i'm thinking about you</h1></header>
+    <button id="btn" type="button">finger touch</button>
+    <script>
+        const giphyApi = encodeURIComponent('');
+        const giphyQuery = `https://api.giphy.com/v1/gifs/search?${giphyApi}&q=thinking+about+you&limit=1&rating=g&lang=en`;
+
+        
+        const fetchGif = () => {
+                
+                //make the query with fetch or axios etc
+            $("#btn").click(() => {      
+
+                const url = `https://api.giphy.com/v1/gifs/random?api_key=${giphyApi}&tag=love&rating=g`;
+                $.ajax({
+                    url: url,
+                    dataType: 'json',
+                    type: 'GET',
+                    success: function (data) {
+                        console.log(data, 'this is the data retrieved from giphy');
+                        const gifUrl = data.data.embed_url;
+                        console.log('gifUrl here:', gifUrl)
+                        
+                    },
+                    error: function (err) {
+                        console.error(err);
+                    }
+
+                     
+                    
+                });
+                
+            });
+
+           
+            }
+       
+    </script>
+<script type="text/javascript" src="./server.js"></script>
+<script type="text/javascript" src="./app.js"></script>
+
+</body>
+</html>
+        
